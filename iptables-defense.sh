@@ -21,7 +21,7 @@ iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 cd $(dirname $0)/
 bash ./entry/def-general.sh
-bash ./entry/def-ssh.sh $SSH
+# Disabled : bash ./entry/def-ssh.sh $SSH
 bash ./entry/def-http.sh $HTTP
 
 echo -e "$PREFIX All DEFENSE Activated."
