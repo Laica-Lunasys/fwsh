@@ -56,7 +56,8 @@ iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 if [ "${allow_hosts}" ]; then
     for allow_host in ${allow_hosts[@]}; do
         echo -e "$RPREFIX Adding allow_host: $allow_host"
-        iptables -A INPUT -p tcp -s $allow_host -j ACCEPT
+        # Allow Only TCP: iptables -A INPUT -p tcp -s $allow_host -j ACCEPT
+        iptables -A INPUT -s $allow_host -j ACCEPT
     done
 fi
 
